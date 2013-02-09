@@ -21,8 +21,7 @@ Click one of the above buttons, whether you found or lost something!
     <%= f.created_at %><br/>
     <%= f.media[0].to_json %><br/>
     <% unless f.media[0].nil? %>
-        <img src='<%= f.media[0].media_url %>'/><br/>
         <img src='<%= f.media[0].display_url %>'/><br>
-        <img src='<%= f.media[0].media_url %>' /><br/>
+        <img src='<%= f.media[0].display_url %>' height="<%= f.media[0].sizes['thumb']['h'] %>" width="<%= f.media[0].sizes['thumb']['w'] %>" /><br/>
     <% end %>
 <% end %>
