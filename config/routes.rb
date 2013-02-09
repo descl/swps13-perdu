@@ -1,4 +1,6 @@
 Swps13Perdu::Application.routes.draw do
+  get "mobile/index"
+
   devise_for :pros
 
   get "found/index"
