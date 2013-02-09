@@ -10,7 +10,11 @@ class TwitterService
     end
   end
 
-  def tweet
-    Twitter.update("Test tweet")
+  def tweet status, media=nil
+    if media
+      Twitter.update_with_media(status, media)
+    else
+      Twitter.update(status)
+    end
   end
 end
