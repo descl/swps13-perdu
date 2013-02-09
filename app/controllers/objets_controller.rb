@@ -45,13 +45,9 @@ class ObjetsController < ApplicationController
   def create
     @objet = Objet.new(params[:objet])
         ts=TwitterService.new
-        ts.tweet "avant:! #{@objet.picture.url} "#, new.File(@objet.picture.url)
-
-        #@objet.save
-      
     respond_to do |format|
       if @objet.save
-        ts.tweet "apres! #{@objet.picture.url} ", File.new("public"+@objet.picture.url.split("?").first)
+        ts.tweet "We have found #{@objet.name}! => http://www.loooze.com/objet/#{@objet.id} ", File.new("public"+@objet.picture.url.split("?").first)
         
         format.html { redirect_to @objet, notice: 'Objet was successfully created.' }
         format.json { render json: @objet, status: :created, location: @objet }
