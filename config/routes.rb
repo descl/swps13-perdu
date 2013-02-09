@@ -5,6 +5,7 @@ Swps13Perdu::Application.routes.draw do
 
   get "lost/index"
 
+  get "pros/index"
   resources :objets
 
 
