@@ -17,9 +17,11 @@ Click one of the above buttons, whether you found or lost something!
 
 
 <% @feed.each do|f| %>
-    <%= f.text %><br/>
-    <%= f.created_at %><br/>
-    <% unless f.media[0].nil? %>
-        <img src='<%= f.media[0].media_url %>' width="150" height="150"/><br>
-    <% end %>
+    <div id="<%= f.text %>">
+      <% unless f.media[0].nil? %>
+          <img src='<%= f.media[0].media_url %>' width="100" height="100"/>
+      <% end %>
+      <%= f.text %><br/>
+      <%= f.created_at %><br/>
+    </div>
 <% end %>
