@@ -2,6 +2,7 @@ require 'httpclient'
 require 'rest_client'
 require 'json'
 require 'pp'
+require 'open-uri'
 
 class TwitterSyncTweets
   def initialize
@@ -35,24 +36,25 @@ class TwitterSyncTweets
 
         user_name = tweet["from_user"]
         name = tweet["text"]
-        picture_url = tweet["entities"]["media"][0]["media_url"] if tweet["entities"].has_key?("media")
+        if tweet["entities"].has_key?("media")
+          picture_url = tweet["entities"]["media"][0]["media_url"]
 
-        puts "posting new tweet to loooze.com ..."
-        begin
-          response=RestClient.post 'http://www.loooze.com/objet/', :name => name, :picture => picture_url #, :user_name => user_name,
-          if response.code >= 300
-            puts "HTTP error occurred - code: #{response.code}"
-            return
+          open('image.png', 'wb') do |file|
+            file << open(picture_url).read
           end
-        rescue Exception => e
-          puts "Unexpected error occurred: #{e.inspect}"
-          return
         end
+
+        puts "posting new tweet to loooze.com using curl ..."
+        curl_command="curl -F \"objet[name]=#{name}\"" + (picture_url ? " -F \"objet[picture]=@image.png\"" : "") + " \"http://www.loooze.com/objets\""
+        puts curl_command
+        system(curl_command)
+
         puts "post finished successfully."
 
         max_twitter_id=tweet["id"]
 
         File.open(file_name, 'w') {|file| file.write(max_twitter_id) }
+        puts "set max twitter id to #{max_twitter_id}"
       end
 
       puts "sync finished."
