@@ -68,7 +68,6 @@ GEM
       multipart-post (~> 1.1)
     hike (1.2.1)
     http_parser.rb (0.5.3)
-    httpclient (2.3.2)
     i18n (0.6.1)
     journey (1.0.4)
     jquery-rails (2.2.1)
@@ -170,7 +169,6 @@ PLATFORMS
 DEPENDENCIES
   coffee-rails (~> 3.2.1)
   devise
-  httpclient
   jquery-rails
   less-rails
   paperclip (~> 3.0)
