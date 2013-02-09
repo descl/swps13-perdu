@@ -2,6 +2,6 @@ require 'twitter/twitter_service'
 
 class HomeController < ApplicationController
   def index
-    @feed = TwitterService.getTweets
+    #@feed = TwitterService.getTweets
   end
 end
