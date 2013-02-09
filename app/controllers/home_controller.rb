@@ -1,7 +1,7 @@
-require 'twitter/twitter_service'
+require 'twitter'
 
 class HomeController < ApplicationController
   def index
-    #@feed = TwitterService.getTweets
+    @feed = Twitter.user_timeline("looozecom")
   end
 end
