@@ -17,4 +17,8 @@ class TwitterService
       Twitter.update(status)
     end
   end
+
+  def getTweets
+    Twitter.user_timeline("looozecom")
+  end
 end
