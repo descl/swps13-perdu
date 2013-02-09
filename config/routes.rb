@@ -1,4 +1,6 @@
 Swps13Perdu::Application.routes.draw do
+  devise_for :pros
+
   get "found/index"
 
   get "lost/index"

@@ -1,5 +1,15 @@
 <p id="notice"><%= notice %></p>
 
+<p>
+  <b>Name:</b>
+  <%= @objet.name %>
+</p>
+
+<p>
+  <b>Category:</b>
+  <%= @objet.category %>
+</p>
+
 
 <%= link_to 'Edit', edit_objet_path(@objet) %> |
 <%= link_to 'Back', objets_path %>
