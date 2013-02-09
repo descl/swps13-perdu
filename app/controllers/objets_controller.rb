@@ -1,13 +1,6 @@
+require './lib/twitter/twitter_service'
+
 class ObjetsController < ApplicationController
-  
-  def lost
-    
-  end
-  
-  def found
-    
-  end
-  
   # GET /objets
   # GET /objets.json
   def index
@@ -35,6 +28,7 @@ class ObjetsController < ApplicationController
   def new
     @objet = Objet.new
 
+    
     respond_to do |format|
       format.html # new.html.erb
       format.json { render json: @objet }
@@ -50,11 +44,14 @@ class ObjetsController < ApplicationController
   # POST /objets.json
   def create
     @objet = Objet.new(params[:objet])
-
+        ts=TwitterService.new
     respond_to do |format|
       if @objet.save
+        ts.tweet "We have found #{@objet.name}! => http://www.loooze.com/objet/#{@objet.id} ", File.new("public"+@objet.picture.url.split("?").first)
+        
         format.html { redirect_to @objet, notice: 'Objet was successfully created.' }
         format.json { render json: @objet, status: :created, location: @objet }
+        
       else
         format.html { render action: "new" }
         format.json { render json: @objet.errors, status: :unprocessable_entity }
@@ -83,7 +80,6 @@ class ObjetsController < ApplicationController
   def destroy
     @objet = Objet.find(params[:id])
     @objet.destroy
-
     respond_to do |format|
       format.html { redirect_to objets_url }
       format.json { head :no_content }

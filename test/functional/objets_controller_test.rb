@@ -18,7 +18,7 @@ class ObjetsControllerTest < ActionController::TestCase
 
   test "should create objet" do
     assert_difference('Objet.count') do
-      post :create, objet: {  }
+      post :create, objet: { category: @objet.category, name: @objet.name }
     end
 
     assert_redirected_to objet_path(assigns(:objet))
@@ -35,7 +35,7 @@ class ObjetsControllerTest < ActionController::TestCase
   end
 
   test "should update objet" do
-    put :update, id: @objet, objet: {  }
+    put :update, id: @objet, objet: { category: @objet.category, name: @objet.name }
     assert_redirected_to objet_path(assigns(:objet))
   end
 

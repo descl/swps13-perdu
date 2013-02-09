@@ -34,4 +34,9 @@ Swps13Perdu::Application.configure do
 
   # Expands the lines which load the assets
   config.assets.debug = true
+
+Paperclip.options[:command_path] = "/usr/local/bin/"
+config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+
 end
