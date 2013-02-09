@@ -24,6 +24,7 @@ gem 'jquery-rails'
 
 gem 'twitter'
 gem 'tweetstream'
+gem 'httpclient'
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
