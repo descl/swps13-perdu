@@ -24,6 +24,7 @@ gem 'jquery-rails'
 
 gem 'twitter'
 gem 'tweetstream'
+gem 'omniauth-twitter'
 
 #gestion des fichiers
 gem "paperclip", "~> 3.0"
