@@ -20,7 +20,6 @@ Click one of the above buttons, whether you found or lost something!
     <%= f.text %><br/>
     <%= f.created_at %><br/>
     <% unless f.media[0].nil? %>
-        <img src='<%= f.media[0].media_url %>'/><br>
-        <%= puts f.media[0].sizes %>
+        <img src='<%= f.media[0].media_url %>' width="150" height="150"/><br>
     <% end %>
 <% end %>
