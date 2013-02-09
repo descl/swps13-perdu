@@ -1,4 +1,13 @@
 class ObjetsController < ApplicationController
+  
+  def lost
+    
+  end
+  
+  def found
+    
+  end
+  
   # GET /objets
   # GET /objets.json
   def index
