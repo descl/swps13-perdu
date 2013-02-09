@@ -5,8 +5,6 @@ Browse through stuffs that were found.
 <%= link_to "I have lost!", lost_index_path, :class=>"btn btn-danger" %>
 <br/><br/><br/>
 
-<a class="twitter-timeline" href="https://twitter.com/looozecom" data-widget-id="300288741203918848">Tweets by @looozecom</a>
-<script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 Whether you lost your beloved phone or the keys to your house, we'll help you find the guy who found it.
 <b>Looze</b> matches time stamped and geolocallized pictures of found objects from individuals and institutionals around the country to help you get back your stuffs!
@@ -17,8 +15,15 @@ Click one of the above buttons, whether you found or lost something!
 <script>!function(d,s,id){var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s);js.id=id;js.src="//platform.twitter.com/widgets.js";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","twitter-wjs");</script>
 
 <% if @feed.kind_of?(Array) %>
-   <% @feed.each do %>
-        <%= @feed.inspect %>
+   <% @feed.each do|f| %>
+        <%= f.text %><br/>
+        <%= f.created_at %><br/>
+<%= f.media[0].to_json %><br/>
+__<%=   puts f.media[0].media_url if f.media[0] != nil %>
+        <img src='<%=   puts f.media[0].media_url if f.media[0] != nil#.media_url_https 
+%>'/><br/>
+        <%= #f.inspect 
+%>
    <% end %>
 <% else %>
     <%= @feed.inspect %>
