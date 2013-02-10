@@ -1,5 +1,3 @@
-require './lib/twitter/twitter_service'
-
 class ObjetsController < ApplicationController
   # GET /objets
   # GET /objets.json
@@ -44,16 +42,10 @@ class ObjetsController < ApplicationController
   # POST /objets.json
   def create
     @objet = Objet.new(params[:objet])
-    ts=TwitterService.new
     respond_to do |format|
       if @objet.save
-        file_location = @objet.picture ? "public"+@objet.picture.url.split("?").first : "XXX"
-
-        ts.tweet "We have found '#{@objet.name}! => http://www.loooze.com/objet/#{@objet.id}'", File.exist?(file_location) ? File.new(file_location) : nil
-        
-        format.html { redirect_to @objet, notice: 'Objet was successfully created.' }
+        format.html { redirect_to @objet, notice: 'The found item was successfully registered.' }
         format.json { render json: @objet, status: :created, location: @objet }
-        
       else
         format.html { render action: "new" }
         format.json { render json: @objet.errors, status: :unprocessable_entity }
@@ -68,7 +60,7 @@ class ObjetsController < ApplicationController
 
     respond_to do |format|
       if @objet.update_attributes(params[:objet])
-        format.html { redirect_to @objet, notice: 'Objet was successfully updated.' }
+        format.html { redirect_to @objet, notice: 'The found item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

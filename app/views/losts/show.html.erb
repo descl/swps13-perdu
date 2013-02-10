@@ -1,9 +1,5 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <b>Name:</b>
-  <%= @lost.name %>
-</p>
 
 <p>
   <b>Category:</b>
@@ -11,15 +7,7 @@
 </p>
 
 <p>
-  <b>Contact:</b>
-  <%= @lost.contact %>
-</p>
-
-<p>
   <b>Description:</b>
-  <%= @lost.description %>
+  <%= @lost.name %>
 </p>
 
-
-<%= link_to 'Edit', edit_lost_path(@lost) %> |
-<%= link_to 'Back', losts_path %>

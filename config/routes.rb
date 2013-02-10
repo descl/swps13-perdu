@@ -9,6 +9,7 @@ Swps13Perdu::Application.routes.draw do
 
   get "pros/index"
   resources :objets
+  resources :losts
 
 
   get "home/index"

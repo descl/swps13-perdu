@@ -2,13 +2,13 @@
 <h3>Please supply the following information:</h3>
 
 
-<%= form_for(@objet) do |f| %>
-  <% if @objet.errors.any? %>
+<%= form_for(@lost) do |f| %>
+  <% if @lost.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@objet.errors.count, "error") %> prohibited the lost item from being saved:</h2>
+      <h2><%= pluralize(@lost.errors.count, "error") %> prohibited the lost item from being saved:</h2>
 
       <ul>
-      <% @objet.errors.full_messages.each do |msg| %>
+      <% @lost.errors.full_messages.each do |msg| %>
         <li><%= msg %></li>
       <% end %>
       </ul>
@@ -16,19 +16,29 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %>
+    <%= f.label :category %>
+    <select name="lost[category]">
+      <option value="">Select ...</option>
+      <option value="bag">Bag</option>
+      <option value="book">Book</option>
+      <option value="document">Document</option>
+      <option value="electronics">Electronics</option>
+      <option value="fashion">Fashion</option>
+      <option value="glasses">Glasses</option>
+      <option value="jewels">Jewels</option>
+     <option value="keys">Keys</option>
+      <option value="pet">Pet</option>
+      <option value="phone">Phone</option>
+      <option value="wallet">Wallet</option>
+      <option value="other">Other</option>
+    </select>
+  </div >
+  <div class="field">
+    <%= f.label "Description (give some details about the lost item and where and when you lost it)" %>
     <%= f.text_field :name %>
   </div>
-  <div class="field">
-    <%= f.label :category %>
-    <%= f.text_field :category %>
-  </div >
-  <div class="field">
-    <%= f.label :picture %>
-    <%= f.file_field :picture %>
-  </div >
   </br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Submit" %>
   </div>
 <% end %>

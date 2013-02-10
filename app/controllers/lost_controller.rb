@@ -1,5 +1,5 @@
 class LostController < ApplicationController
   def index
-    @objet = Objet.new
+    @lost = Lost.new
   end
 end

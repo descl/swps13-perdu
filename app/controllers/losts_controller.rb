@@ -1,3 +1,5 @@
+require './lib/twitter/twitter_service'
+
 class LostsController < ApplicationController
   # GET /losts
   # GET /losts.json
@@ -42,9 +44,12 @@ class LostsController < ApplicationController
   def create
     @lost = Lost.new(params[:lost])
 
+    ts=TwitterService.new
+
     respond_to do |format|
       if @lost.save
-        format.html { redirect_to @lost, notice: 'Lost was successfully created.' }
+        ts.tweet "A #{@lost.category} was lost! For more information visit http://www.loooze.com/losts/#{@lost.id} #loooze"
+        format.html { redirect_to @lost, notice: 'The lost item was successfully registered.' }
         format.json { render json: @lost, status: :created, location: @lost }
       else
         format.html { render action: "new" }
@@ -60,7 +65,7 @@ class LostsController < ApplicationController
 
     respond_to do |format|
       if @lost.update_attributes(params[:lost])
-        format.html { redirect_to @lost, notice: 'Lost was successfully updated.' }
+        format.html { redirect_to @lost, notice: 'The lost item was successfully updated.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }
