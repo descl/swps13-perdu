@@ -60,7 +60,7 @@ class TwitterSyncTweets
       puts "sync finished."
 
       puts "sleep 10 sec ..."
-      sleep(30)
+      sleep(10)
     end
   end
 end

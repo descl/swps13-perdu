@@ -1,2 +1,31 @@
-<h1>Lost#index</h1>
-<p>Find me in app/views/lost/index.html.erb</p>
+<h1>Item lost</h1>
+<h3>Please supply the following information:</h3>
+
+
+<%= form_for(@objet) do |f| %>
+  <% if @objet.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@objet.errors.count, "error") %> prohibited the lost item from being saved:</h2>
+
+      <ul>
+      <% @objet.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :name %><br />
+    <%= f.text_field :name %>
+  </div>
+  <div class="field">
+    <%= f.label :category %><br />
+    <%= f.text_field :category %>
+  </div>
+    <%= f.label :picture %><br />
+    <%= f.file_field :picture %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>
