@@ -12,7 +12,7 @@
 <% @objets.each do |objet| %>
   <tr>
     <td><%= time_ago_in_words(objet.created_at) %> ago</td>
-    <td><img src="<%= objet.picture %>"/></td>
+    <td><img src="<%= objet.picture %>" height=100 width=100/></td>
     <td><%= objet.category %></td>
     <td><%= objet.name %></td>
   </tr>
