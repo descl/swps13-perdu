@@ -1,15 +1,13 @@
 <p id="notice"><%= notice %></p>
 <img src="<%= @objet.picture %>"/>
 <p>
-  <b>Name:</b>
-  <%= @objet.name %>
-</p>
-
-<p>
   <b>Category:</b>
   <%= @objet.category %>
 </p>
 
+<p>
+  <b>Description:</b>
+  <%= @objet.name %>
+</p>
 
-<%= link_to 'Edit', edit_objet_path(@objet) %> |
-<%= link_to 'Back', objets_path %>
+
