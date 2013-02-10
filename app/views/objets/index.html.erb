@@ -1,23 +1,20 @@
 
-<h1>Listing objets</h1>
+<h1>Internal listing of found objects</h1>
 
-<table>
+<table border=1>
   <tr>
-    <th>Name</th>
+    <th>Date</th>
+    <th>Picture</th>
     <th>Category</th>
-    <th></th>
-    <th></th>
-    <th></th>
+    <th>Description</th>
   </tr>
 
 <% @objets.each do |objet| %>
   <tr>
+    <td><%= time_ago_in_words(objet.created_at) %> ago</td>
     <td><img src="<%= objet.picture %>"/></td>
-    <td><%= objet.name %></td>
     <td><%= objet.category %></td>
-    <td><%= link_to 'Show', objet %></td>
-    <td><%= link_to 'Edit', edit_objet_path(objet) %></td>
-    <td><%= link_to 'Destroy', objet, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+    <td><%= objet.name %></td>
   </tr>
 <% end %>
 </table>
