@@ -14,7 +14,9 @@ class TwitterService
     if media
       Twitter.update_with_media(status, media)
     else
+      Rails.logger.debug "Sending tweet '#{status}'..."
       Twitter.update(status)
+      Rails.logger.debug "Tweet sent."
     end
   end
 
