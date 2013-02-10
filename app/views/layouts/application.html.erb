@@ -44,7 +44,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </a>
-          <a class="brand" href="#">Loooze.com!</a>
+          <a class="brand" href="/">Loooze.com!</a>
           <div class="container-fluid nav-collapse">
             <ul class="nav">
               <li><%= link_to "About", "/path1"  %></li>
@@ -55,18 +55,58 @@
         </div>
       </div>
     </div>
-    <div class="container-fluid">
-      <div class="row-fluid">
-        <div class="span12">
-          <img src="/logo.png"/>
-        </div>
-      </div><!--/row-->
+
+
+
 
     <div class="container-fluid">
       <div class="row-fluid">
         <div class="span9">
+
+                <img src="/logo.png" class="logoPict"/>
+
+<br/></br/>
+
           <%= bootstrap_flash %>
           <%= yield %>
+        </div>
+
+
+
+
+
+
+        <div class="span3 boiteatwits">
+            <h2 class="titlefound">Lost items!</h2>
+
+
+
+            <% Objet.all.each do|f| %>
+
+            <div class="atweet">
+              <img src='<%= f.picture %>' width="100" height="100"/>
+              <%= f.name %><br/>
+              <%= l f.created_at %><br/>
+            </div>
+            <hr/>
+        <% end %>
+
+
+
+
+<!--
+            <% @feed.each do|f| %>
+      <% unless f.media[0].nil? %>
+        <div id="<%= f.text %>" class="atweet">
+        <img src='<%= f.media[0].media_url %>' width="100" height="100"/>
+          
+        <%= f.text %><br/>
+        <%= l f.created_at %><br/>
+        </div>
+        <hr/>
+      <% end %>
+<% end %>
+-->
         </div>
       </div><!--/row-->
 

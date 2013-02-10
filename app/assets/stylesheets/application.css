@@ -21,3 +21,24 @@
   clear:both;
   padding-top:20px;
 }
+
+.titlefound{
+font-family: 'Lobster',cursive;
+}
+
+.atweet{
+padding:0px;
+background-color: white;
+border-radius: 10px;
+}
+.boiteatwits{
+padding:0px;
+    background-color: #EEEEEE;
+    border-radius: 6px 6px 6px 6px;
+    color: inherit;
+    font-size: 18px;
+    font-weight: 200;
+    line-height: 30px;
+    margin-bottom: 30px;
+    padding: 20px;
+}
