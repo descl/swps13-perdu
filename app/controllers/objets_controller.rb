@@ -2,7 +2,7 @@ class ObjetsController < ApplicationController
   # GET /objets
   # GET /objets.json
   def index
-    @objets = Objet.all
+    @objets = Objet.find(:all, :order => "created_at DESC")
 
     respond_to do |format|
       format.html # index.html.erb
