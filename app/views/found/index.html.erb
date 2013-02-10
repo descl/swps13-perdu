@@ -1,12 +1,12 @@
-<h1>Found#index</h1>
-<p>I have found an object!</p>
+<h1>Item found</h1>
+<h3>Please supply the following information:</h3>
 
 
 
 <%= form_for(@objet) do |f| %>
   <% if @objet.errors.any? %>
     <div id="error_explanation">
-      <h2><%= pluralize(@objet.errors.count, "error") %> prohibited this objet from being saved:</h2>
+      <h2><%= pluralize(@objet.errors.count, "error") %> prohibited the found item from being saved:</h2>
 
       <ul>
       <% @objet.errors.full_messages.each do |msg| %>
@@ -17,14 +17,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :category %><br />
+    <%= f.label :category %>
     <%= f.text_field :category %>
   </div>
+  <div class="field">
+    <%= f.label :picture %>
     <%= f.file_field :picture %>
+  </div> </br>
   <div class="actions">
     <%= f.submit %>
   </div>

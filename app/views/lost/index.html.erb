@@ -16,15 +16,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :name %><br />
+    <%= f.label :name %>
     <%= f.text_field :name %>
   </div>
   <div class="field">
-    <%= f.label :category %><br />
+    <%= f.label :category %>
     <%= f.text_field :category %>
-  </div>
-    <%= f.label :picture %><br />
+  </div >
+  <div class="field">
+    <%= f.label :picture %>
     <%= f.file_field :picture %>
+  </div >
+  </br>
   <div class="actions">
     <%= f.submit %>
   </div>
