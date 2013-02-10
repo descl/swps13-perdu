@@ -1,0 +1,29 @@
+<h1>Listing losts</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Category</th>
+    <th>Contact</th>
+    <th>Description</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @losts.each do |lost| %>
+  <tr>
+    <td><%= lost.name %></td>
+    <td><%= lost.category %></td>
+    <td><%= lost.contact %></td>
+    <td><%= lost.description %></td>
+    <td><%= link_to 'Show', lost %></td>
+    <td><%= link_to 'Edit', edit_lost_path(lost) %></td>
+    <td><%= link_to 'Destroy', lost, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Lost', new_lost_path %>
